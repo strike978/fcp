@@ -7,7 +7,7 @@ import streamlit as st
 st.set_page_config(page_title="Find Closest Populations", page_icon="🌎")
 
 # Add page header
-st.header("Find Closest Populations")
+st.caption("This web application leverages G25 population data to calculate the distances between selected target populations and a reference population. The distances are calculated using the Euclidean algorithm, a popular method for measuring the geometric distance between two points in a high-dimensional space.")
 
 # Read in data from the selected input file
 t = pd.read_csv('Modern Era.txt', delimiter=",", index_col=0)
@@ -54,7 +54,3 @@ if st.button("Calculate Distance"):
         st.write("Distance to:")
         for target_row in sorted_target_rows:
             st.code(f"{target_row}: {distances[target_row]:.2f}")
-
-
-# Adding a caption to the bottom of the page.
-st.caption("This web application leverages G25 population data to calculate the distances between selected target populations and a reference population. The distances are calculated using the Euclidean algorithm, a popular method for measuring the geometric distance between two points in a high-dimensional space.")
